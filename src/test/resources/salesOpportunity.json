@@ -1,0 +1,8 @@
+[
+    {
+        "opportunityId": "xenoIntegrationContractSales",
+        "accountId": "businessDevelopmentAcme",
+        "parentAccountId": "acme",
+        "dealValue": 5000.00
+    }
+]   
