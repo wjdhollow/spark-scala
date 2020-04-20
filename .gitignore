@@ -8,3 +8,11 @@ gradle*
 
 # Ignore build directory
 build
+
+# Ignore VScode and metals generated files
+.bloop
+.classpath
+.metals
+.project
+.settings
+bin/

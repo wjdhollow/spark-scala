@@ -42,24 +42,24 @@ class SparkSqlSuite extends AnyFlatSpec with Matchers with BeforeAndAfterAll {
     spark.read.option("multiline", "true").json(path)
   }
 
-  "toDS on a case class collection" should "create a dataset" ignore {
+  "toDS on a case class collection" should "create a dataset" in {
     val opportunities = Seq(Opportunity("fy2020Q1", 2000.00, "bestBuyIT", "bestBuy")).toDS()
     val numOpportunities = opportunities.count()
     numOpportunities should be (1)
   }
 
-  "Reading from JSON file" should "create a Dataframe" ignore {
+  "Reading from JSON file" should "create a Dataframe" in {
     val df = createJsonDataFrame(SALES_OPPORTUNITY_REL_PATH)
     val numOpportunities = df.count()
     numOpportunities should be >= 1L
   }
 
-  "Selecting a column from a Dataframe" should "return the column" ignore {
+  "Selecting a column from a Dataframe" should "return the column" in {
     val df = createJsonDataFrame(SALES_OPPORTUNITY_REL_PATH)
     df.select($"dealValue").show()
   }
 
-  "Getting a Long from a row" should "return the value" ignore {
+  "Getting a Long from a row" should "return the value" in {
     val df = createJsonDataFrame(SALES_OPPORTUNITY_REL_PATH)
     val dealValueTotal = df.select($"dealValue").agg(sum($"dealValue")).collect().map(_.getDouble(0)).reduce(_ + _)
     dealValueTotal should be > 10.0
