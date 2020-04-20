@@ -1,0 +1,10 @@
+# Ignore gradle files
+.gradle
+gradle*
+
+# Ignore binary files
+*.orc
+*.avro
+
+# Ignore build directory
+build
